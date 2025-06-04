@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+int sum(int arr[]) {
+	int result = 0;
+	for (int i = 0; i < 5; ++i) {
+		result += arr[i];
+	}
+	return result;
+}
+
+int average(int arr[]) {
+	int result = 0;
+	for (int i = 0; i < 5; ++i) {
+		result += arr[i];
+	}
+	return result/5;
+}
+
+int sort(int (&arr)[5], int ascending = 1) {
+
+	for (int i = 0; i < 5; ++i) {
+		for (int j = 0; j < 5; j++) {
+			if (ascending == 1){
+				if (arr[i] < arr[j]) {
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+			else {
+				if (arr[i] > arr[j]) {
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+	}
+
+	return 0;
+}
+
+
+int main() {
+
+	int arr[5];
+
+    cout << "첫 번째 숫자: ";
+	cin >> arr[0];
+    cout << "두 번째 숫자: ";
+	cin >> arr[1];
+	cout << "세 번째 숫자: ";
+	cin >> arr[2];
+	cout << "네 번째 숫자: ";
+	cin >> arr[3];
+	cout << "다섯 번째 숫자: ";
+	cin >> arr[4];
+
+	cout << "합계: " << sum(arr) << endl;
+	cout << "평균: " << average(arr) << endl;
+
+	int asc;
+	cout << "오름차순 정렬 1, 내림차순 정렬 2: ";
+	cin >> asc;
+	sort(arr, asc);
+	cout << "정렬 전: " << arr[0] << arr[1] << arr[2] << arr[3] << arr[4] << endl;
+	cout << "정렬 후: " << arr[0] << arr[1] << arr[2] << arr[3] << arr[4] << endl;
+
+
+	return 0;
+}
